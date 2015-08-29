@@ -8,12 +8,7 @@ var path = require('path');
 var morgan =  require('morgan');
 var cookieParser =  require('cookie-parser');
 
-
-//import mongodb from 'mongodb';
-var config = require('./config');
-var passport = require('./passport');
-
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 5000;
 var environment = process.env.NODE_ENV;
 
 app.use(bodyParser.urlencoded({
@@ -24,7 +19,9 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(express.static('./src/public/'));
 
-passport.init(app);
+// passport init
+var passport = require('./passport')(app);
+require('./app/routes.js')(app, passport);
 
 app.listen(port, function() {
   console.log('Server started at port ', port);
