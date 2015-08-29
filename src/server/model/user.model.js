@@ -6,14 +6,18 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  email: {type: String, unique: true, lowercase: true},
-  displayName: {type: String, required: true},
-  picture: String,
-  twitter: {type: String, required: true},
-  creationDate: {type: Date, default: Date.now}
+  twitter          : {
+    id           : {type: String, required: true},
+    token        : String,
+    displayName  : {type: String, required: true},
+    username     : String,
+    picture      : String,
+    creationDate : {type: Date, default: Date.now},
+    updateDate   : {type: Date, default: Date.now}
+  }
 });
 
-userSchema.path('displayName').required(true, 'Display name is required');
-userSchema.path('twitter').required(true, 'Twitter id is required');
+userSchema.path('twitter.displayName').required(true, 'Display name is required');
+userSchema.path('twitter.id').required(true, 'Twitter id is required');
 
 export default mongoose.model('User', userSchema);

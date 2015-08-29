@@ -15,6 +15,7 @@ module.exports = function(app, passport) {
 
   // route for showing the profile page
   app.get('/profile', isLoggedIn, function(req, res) {
+    console.log('profille!!!!!!!!!!!!!!!!');
     res.render('profile.ejs', {
       user : req.user // get the user out of session and pass to template
     });
@@ -35,9 +36,8 @@ module.exports = function(app, passport) {
   app.get('/auth/twitter', passport.authenticate('twitter'));
 
   // handle the callback after twitter has authenticated the user
-  app.get('/auth/twitter/callback',
-    passport.authenticate('twitter', {
-      successRedirect : '/profile',
+  app.get('/auth/twitter/callback',passport.authenticate('twitter', {
+      successRedirect : '/',
       failureRedirect : '/'
     }));
 
@@ -45,6 +45,7 @@ module.exports = function(app, passport) {
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
+  console.log('logged!!!!!!!!!!!!!!!!');
 
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated())

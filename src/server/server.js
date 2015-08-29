@@ -19,6 +19,10 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(express.static('./src/public/'));
 
+var MONGO_DB = require('./config').MONGO_DB;
+var mongoose = require('mongoose');
+mongoose.connect(MONGO_DB.MONGO_URI); // connect to our database
+
 // passport init
 var passport = require('./passport')(app);
 require('./app/routes.js')(app, passport);
