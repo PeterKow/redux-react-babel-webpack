@@ -9,8 +9,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './articles/containers/articles.container.jsx';
 import HeaderMenu from './headerMenu/containers/headerMenu.container.jsx';
-//import todoApp from './reducers';
-//let store = createStore(todoApp);
+import miniarticleApp from './articles/reducers.js';
+console.log('mini', miniarticleApp());
+let store = createStore(miniarticleApp);
 
 let headerMenu = document.getElementById('headerMenu');
 React.render(
@@ -22,11 +23,9 @@ let rootElement = document.getElementById('app');
 React.render(
   // The child must be wrapped in a function
   // to work around an issue in React 0.13.
-  //<Provider store={store}>
-  //  {() => <App />}
-  //</Provider>,
-  //<HeaderMenu />,
-  <App />,
+  <Provider store={store}>
+    {() => <App />}
+  </Provider>,
   rootElement
 );
 
