@@ -5,7 +5,7 @@
 export default {
   TOKEN_SECRET: process.env.TOKEN_SECRET || 'VeryHardStringgg',
   MONGO_DB: {
-    MONGO_URI: process.env.MONGO_URI || 'mongodb://localhost:27017/nodeTweeter',
+    MONGO_URI: process.env.MONGO_URI || 'mongodb://localhost:27017/twitterReact',
   },
   TWITTER_AUTH: {
     TWITTER_KEY: process.env.TWITTER_KEY || 'cCQtvCWf3fGO32gUFPYM3hywq',
