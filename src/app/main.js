@@ -7,7 +7,7 @@ console.log('Application is loaded!');
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './articles/containers/articlers.container.jsx';
+import App from './articles/containers/articles.container.jsx';
 import HeaderMenu from './headerMenu/containers/headerMenu.container.jsx';
 //import todoApp from './reducers';
 //let store = createStore(todoApp);
