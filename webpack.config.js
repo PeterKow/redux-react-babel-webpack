@@ -3,6 +3,7 @@ var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'src', 'public', 'build');
 var mainPath = path.resolve(__dirname, 'src', 'app', 'main.js');
+console.log('----', nodeModulesPath, mainPath);
 var config = {
 
   // Makes sure errors in console map to the correct file
@@ -43,7 +44,11 @@ var config = {
         loader: 'babel',
         exclude: [nodeModulesPath]
       },
-
+      {
+        test: /\.jsx$/,
+        loader: 'babel',
+        exclude: [nodeModulesPath]
+      },
       // Let us also add the style-loader and css-loader, which you can
       // expand with less-loader etc.
       {
