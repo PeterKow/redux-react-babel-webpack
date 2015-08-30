@@ -12,7 +12,6 @@ export default class Articles extends Component {
   render() {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
-console.log('visibleTodos',visibleTodos);
     return (
       <div>
         <AddMiniArticle
@@ -61,7 +60,6 @@ console.log('visibleTodos',visibleTodos);
 };
 
 function selectMiniArticles(miniArticles, filter) {
-  console.log('mini', miniArticles,'filter', filter);
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return miniArticles;
@@ -75,7 +73,6 @@ function selectMiniArticles(miniArticles, filter) {
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
-  console.log('state!', state);
   return {
     visibleTodos: selectMiniArticles(state.miniarticles, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter

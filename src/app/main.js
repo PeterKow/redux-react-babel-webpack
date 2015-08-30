@@ -9,7 +9,7 @@ import { createStore, combineReducers, compose} from 'redux';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Provider } from 'react-redux';
-import App from './articles/containers/articles.container.jsx';
+import App from './articles/containers/articles.container.js';
 import HeaderMenu from './headerMenu/containers/headerMenu.container.jsx';
 import miniarticleApp from './articles/reducers.js';
 
