@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMiniArticle, completeMiniArticle, setVisibilityFilter, VisibilityFilters } from '../actions';
 import AddMiniArticle from '../components/addMiniArticle.jsx';
-//import MiniArticle from '../components/miniArticle.jsx';
 import MiniArticleList from '../components/miniArticleList.jsx';
 import Filter from '../components/filter.jsx';
 

@@ -12,7 +12,6 @@ function visibilityFilter(state = SHOW_ALL, action = { type : 'READ'}) {
 }
 
 function miniarticles(state = [], action = { type : 'READ'}) {
-  console.log('state', state);
   switch (action.type) {
     case ADD_MINIARTICLE:
       return [...state, {
