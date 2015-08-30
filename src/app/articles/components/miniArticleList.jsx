@@ -8,10 +8,10 @@ export default class MiniArticleList extends Component {
   render() {
     return (
       <ul>
-        {this.props.miniarticles.map((miniarticle, index) =>
-            <MiniArticle {...miniarticle}
+        {this.props.miniarticles.map((miniArticle, index) =>
+            <MiniArticle {...miniArticle}
               key={index}
-              onClick={() => this.props.onMiniArticleClick(index)} />
+              onClick={() => this.props.onMiniArticleClick(miniArticle.id)} />
         )}
       </ul>
     );
