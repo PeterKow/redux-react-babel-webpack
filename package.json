@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node --stage 0 ",
-    "start": "npm run babel-node -- src/server/server.js",
+    "start": "npm run babel-node -- server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
