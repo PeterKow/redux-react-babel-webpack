@@ -10,7 +10,9 @@ export default class Filter extends Component {
     }
 
     return (
-      <a href='#' onClick={e => {
+      <a href='#'
+         style={{color: 'black'}}
+         onClick={e => {
         e.preventDefault();
         this.props.onFilterChange(filter);
       }}>
@@ -21,7 +23,7 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <p>
+      <div style={{ padding: 5}}>
         Show:
         {' '}
         {this.renderFilter('SHOW_ALL', 'All')}
@@ -30,7 +32,7 @@ export default class Filter extends Component {
         {', '}
         {this.renderFilter('SHOW_ACTIVE', 'Active')}
         .
-      </p>
+      </div>
     );
   }
 }

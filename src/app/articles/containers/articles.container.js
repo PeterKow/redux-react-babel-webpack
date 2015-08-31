@@ -44,7 +44,8 @@ var articlesContainerStyle = {
   WebkitFontSmoothing: 'antialiased',
   MozFontSmoothing: 'antialiased',
   fontSmoothing: 'antialiased',
-  fontWeight: 300
+  fontWeight: 300,
+  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(0, 0, 0, 0.0980392) 0px 25px 50px 0px'
 };
 
 function selectMiniArticles(miniArticles, filter) {
