@@ -3,7 +3,7 @@
  */
 export const twitterResultsSimple = [
   {
-    id: 0,
+    id: 2,
     image: 'http://pbs.twimg.com/profile_images/625504979898400768/-ftYGjcR_normal.jpg',
     author: 'Irfan',
     text: 'RT @VersatileStaff: #versatilestaff #frontendDeveloper #London #javaScript #ember #reactjs #angularjs ' +
@@ -19,7 +19,7 @@ export const twitterResultsSimple = [
 
   },
   {
-    id: 2,
+    id: 0,
     image: 'http://pbs.twimg.com/profile_images/481334978161029120/iu3zZFEk_normal.png',
     author: 'Mean Magazine Bot',
     text: 'RT @23business: #startup #jobs : JavaScript Developer AngularJS - Start-up: London-London, JavaScript ' +

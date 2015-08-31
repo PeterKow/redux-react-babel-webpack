@@ -39,7 +39,7 @@ var articlesContainerStyle = {
   background: '#f5f5f5',
   color: '#4d4d4d',
   minWidth: 230,
-  maxWidth: 550,
+  maxWidth: 850,
   margin: '0 auto',
   WebkitFontSmoothing: 'antialiased',
   MozFontSmoothing: 'antialiased',
