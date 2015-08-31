@@ -13,7 +13,7 @@ export default class Articles extends Component {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
     return (
-      <div>
+      <div style={articlesContainerStyle}>
         <AddMiniArticle
           onAddClick={text =>
             dispatch(addMiniArticle(text))
@@ -29,34 +29,22 @@ export default class Articles extends Component {
             dispatch(setVisibilityFilter(nextFilter))
           } />
       </div>
-      //<div>
-      //  <AddMiniArticle
-      //    onAddClick={text =>
-      //      console.log('add miniArticle', text)
-      //    } />
-      //  <MiniArticle
-      //    onAddClick={text =>
-      //      console.log('add miniArticle', text)
-      //    } />
-      //  <MiniArticleList
-      //    miniarticles={[{
-      //      text: 'Use Redux',
-      //      completed: true
-      //    }, {
-      //      text: 'Learn to connect it to React',
-      //      completed: false
-      //    }]}
-      //    onMiniArticleClick={miniArticle =>
-      //      console.log('miniArticle clicked', miniArticle)
-      //    } />
-      //  <Filter
-      //    filter='SHOW_ALL'
-      //    onFilterChange={filter =>
-      //      console.log('filter change', filter)
-      //    } />
-      //</div>
     );
   }
+};
+
+var articlesContainerStyle = {
+  font: '14px "Helvetica Neue", Helvetica, Arial, sans-serif',
+  lineHeight: 1.4,
+  background: '#f5f5f5',
+  color: '#4d4d4d',
+  minWidth: 230,
+  maxWidth: 550,
+  margin: '0 auto',
+  WebkitFontSmoothing: 'antialiased',
+  MozFontSmoothing: 'antialiased',
+  fontSmoothing: 'antialiased',
+  fontWeight: 300
 };
 
 function selectMiniArticles(miniArticles, filter) {
