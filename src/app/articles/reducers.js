@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 import { ADD_MINIARTICLE, COMPLETE_MINI_ARTICLE, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions';
+import { twitterResultsSimple } from './mockTwitterResults.js'
 const { SHOW_ALL } = VisibilityFilters;
+
+
+const initialState = twitterResultsSimple;
 
 function visibilityFilter(state = SHOW_ALL, action = { type : 'READ'}) {
   switch (action.type) {
@@ -11,7 +15,7 @@ function visibilityFilter(state = SHOW_ALL, action = { type : 'READ'}) {
   }
 }
 
-function miniarticles(state = [], action = { type : 'READ'}) {
+function miniarticles(state = initialState, action = { type : 'READ'}) {
   switch (action.type) {
     case ADD_MINIARTICLE:
       return [{
