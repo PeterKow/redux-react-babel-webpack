@@ -3,7 +3,7 @@
  */
 
 export const ADD_MINIARTICLE = 'ADD_MINIARTICLE';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const COMPLETE_MINI_ARTICLE = 'COMPLETE_MINI_ARTICLE';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 /*
@@ -15,7 +15,6 @@ export const VisibilityFilters = {
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
-
 /*
  * action creators
  */
@@ -24,8 +23,8 @@ export function addMiniArticle(text) {
   return { type: ADD_MINIARTICLE, text };
 }
 
-export function completeMiniArticle(index) {
-  return { type: COMPLETE_TODO, index };
+export function completeMiniArticle(id) {
+  return { type: COMPLETE_MINI_ARTICLE, id };
 }
 
 export function setVisibilityFilter(filter) {

@@ -41,12 +41,12 @@ var config = {
       // ES6/7 syntax and JSX transpiling out of the box
       {
         test: /\.js$/,
-        loader: 'babel',
+        loaders: ['react-hot', 'babel'],
         exclude: [nodeModulesPath]
       },
       {
         test: /\.jsx$/,
-        loader: 'babel',
+        loaders: ['react-hot', 'babel'],
         exclude: [nodeModulesPath]
       },
       // Let us also add the style-loader and css-loader, which you can

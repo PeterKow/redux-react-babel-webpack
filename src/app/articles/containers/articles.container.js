@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMiniArticle, completeMiniArticle, setVisibilityFilter, VisibilityFilters } from '../actions';
 import AddMiniArticle from '../components/addMiniArticle.jsx';
-//import MiniArticle from '../components/miniArticle.jsx';
 import MiniArticleList from '../components/miniArticleList.jsx';
 import Filter from '../components/filter.jsx';
 
@@ -13,9 +12,8 @@ export default class Articles extends Component {
   render() {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
-console.log('visibleTodos',visibleTodos);
     return (
-      <div>
+      <div style={articlesContainerStyle}>
         <AddMiniArticle
           onAddClick={text =>
             dispatch(addMiniArticle(text))
@@ -31,38 +29,26 @@ console.log('visibleTodos',visibleTodos);
             dispatch(setVisibilityFilter(nextFilter))
           } />
       </div>
-      //<div>
-      //  <AddMiniArticle
-      //    onAddClick={text =>
-      //      console.log('add miniArticle', text)
-      //    } />
-      //  <MiniArticle
-      //    onAddClick={text =>
-      //      console.log('add miniArticle', text)
-      //    } />
-      //  <MiniArticleList
-      //    miniarticles={[{
-      //      text: 'Use Redux',
-      //      completed: true
-      //    }, {
-      //      text: 'Learn to connect it to React',
-      //      completed: false
-      //    }]}
-      //    onMiniArticleClick={miniArticle =>
-      //      console.log('miniArticle clicked', miniArticle)
-      //    } />
-      //  <Filter
-      //    filter='SHOW_ALL'
-      //    onFilterChange={filter =>
-      //      console.log('filter change', filter)
-      //    } />
-      //</div>
     );
   }
 };
 
+var articlesContainerStyle = {
+  font: '14px "Helvetica Neue", Helvetica, Arial, sans-serif',
+  lineHeight: 1.4,
+  background: '#f5f5f5',
+  color: '#4d4d4d',
+  minWidth: 230,
+  maxWidth: 850,
+  margin: '0 auto',
+  WebkitFontSmoothing: 'antialiased',
+  MozFontSmoothing: 'antialiased',
+  fontSmoothing: 'antialiased',
+  fontWeight: 300,
+  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(0, 0, 0, 0.0980392) 0px 25px 50px 0px'
+};
+
 function selectMiniArticles(miniArticles, filter) {
-  console.log('mini', miniArticles,'filter', filter);
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return miniArticles;
@@ -76,7 +62,6 @@ function selectMiniArticles(miniArticles, filter) {
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
-  console.log('state!', state);
   return {
     visibleTodos: selectMiniArticles(state.miniarticles, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter
