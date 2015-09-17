@@ -1,23 +1,22 @@
 import React from 'react';
-import { DefaultRoute, Route, NotFoundRoute, Redirect } from 'react-router';
 
-import mainApp from 'pages/mainPage/app.js'
-import mainPage from 'pages/mainPage/mainPage.js'
+import { Router, DefaultRoute, Route, NotFoundRoute, Redirect } from 'react-router';
 
-const routes = (
-  <Route name="app" path="/" handler={mainApp}>
-    <DefaultRoute handler={mainPage} />
+import Application from './pages/mainPage/app.js'
+import MainPage from './pages/mainPage/mainPage.js'
+import NotFoundRouteView from './pages/utils/notFoundRoute.js'
 
-    <Redirect from="search" to="/" />
-  </Route>
-);
+function renderRoutes (history) {
+  return (
+    <Router history={history}>
+      <Route component={ Application }>
+        <Route path="/" component={ MainPage } />
+      </Route>
 
-export default routes;
+      <Route path="*" component={ NotFoundRouteView }/>
+    </Router>
+  )
+}
 
+export default renderRoutes;
 
-
-//<NotFoundRoute handler={require('./components/notFoundPage')} />
-//<Route name="authors" handler={require('./components/authors/authorPage')} />
-//<Route name="about" handler={require('./components/about/aboutPage')} />
-//<Redirect from="awthurs" to="authors" />
-//<Redirect from="about/*" to="about" />

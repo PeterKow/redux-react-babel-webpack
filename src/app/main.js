@@ -5,8 +5,6 @@ require('./main.css');
 console.log('Application is loaded!');
 
 import React, { PropTypes } from 'react';
-import { Router, Route } from 'react-router';
-//import routes from './routes.js'
 import { createStore, combineReducers, compose} from 'redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Provider, connect } from 'react-redux';
@@ -17,12 +15,9 @@ import HeaderMenu from './containers/headerMenu/containers/headerMenu.container.
 import miniarticleApp from './containers/articles/reducers.js';
 import * as storage from './persistance/storage.js'
 
-import Application from './pages/mainPage/app.js'
-import mainPage from './pages/mainPage/mainPage.js'
+
 
 import { IntlProvider } from 'react-intl'
-
-
 
 import { twitterResultsSimple } from './containers/articles/mockTwitterResults.js'
 const initialState = {
@@ -37,35 +32,9 @@ initialState.visibilityFilter = "SHOW_ALL";
 
 const store = configureStore(initialState)
 
-//let headerMenu = document.getElementById('headerMenu');
-//React.render(
-//  <HeaderMenu />,
-//  headerMenu
-//);
-
 const history = process.env.NODE_ENV === 'production' ?
   createHashHistory() :
   createBrowserHistory();
-//
-//
-//let rootElement = document.getElementById('app');
-//React.render(
-//
-//
-//
-//  // The child must be wrapped in a function
-//  // to work around an issue in React 0.13.
-//  <div>
-//    <Provider store={store}>
-//      {() => <Router history={history} />}
-//    </Provider>
-//    <DebugPanel top right bottom>
-//      <DevTools store={store}
-//                monitor={LogMonitor} />
-//    </DebugPanel>
-//  </div>,
-//  rootElement
-//);
 
 function getRootChildren (props) {
   const intlData = {
@@ -92,18 +61,9 @@ function getRootChildren (props) {
 }
 
 
-//import Application from './articles/containers/articles.container.js';
+import renderRoutes from './routes.js';
 
-function renderRoutes (history) {
-  return (
-    <Router history={history}>
-      <Route component={Application}>
-        <Route path="/" component={ mainPage } />
 
-      </Route>
-    </Router>
-  )
-}
 //<Redirect from="/account" to="/account/profile" />
 //<Route path="stargazers" component={GithubStargazers}>
 //  <Route path=':username/:repo' component={GithubRepo} />
@@ -151,15 +111,5 @@ React.render(
   </Provider>
   , document.getElementById('app'))
 
-
-//<Provider store={store}>
-//  {() => <App />}
-//</Provider>
-
-//Router.run(routes, function(Handler) {
-//  React.render(
-//    <Handler/>,
-//    rootElement);
-//});
 
 
