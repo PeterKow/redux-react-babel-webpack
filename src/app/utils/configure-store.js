@@ -6,7 +6,7 @@ import logger from '../middleware/logger'
 
 import { devTools, persistState } from 'redux-devtools';
 import persistenceStore from '../persistance/store.js'
-import reducers from '../articles/reducers.js'
+import reducers from '../containers/articles/reducers.js'
 
 let combinedCreateStore
 const storeEnhancers = [persistenceStore]
@@ -36,12 +36,12 @@ export default function configureStore (initialState) {
 
   const store = finalCreateStore(combinedReducer, initialState)
 
-  //if (module.hot)
-  //// Enable Webpack hot module replacement for reducers
-  //  module.hot.accept('../articles', () => {
-  //    const nextRootReducer = require('../articles/reducers')
-  //    store.replaceReducer(nextRootReducer)
-  //  })
+  if (module.hot)
+  // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../containers/articles/reducers', () => {
+      const nextRootReducer = require('../containers/articles/reducers')
+      store.replaceReducer(nextRootReducer)
+    })
 
   return store
 }

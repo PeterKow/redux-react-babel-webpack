@@ -13,15 +13,18 @@ import { Provider, connect } from 'react-redux';
 import createHashHistory from 'history/lib/createBrowserHistory';
 import createBrowserHistory from 'history/lib/createHashHistory';
 import configureStore from './utils/configure-store.js';
-import HeaderMenu from './headerMenu/containers/headerMenu.container.jsx';
-import miniarticleApp from './articles/reducers.js';
+import HeaderMenu from './containers/headerMenu/containers/headerMenu.container.jsx';
+import miniarticleApp from './containers/articles/reducers.js';
 import * as storage from './persistance/storage.js'
+
+import Application from './pages/mainPage/app.js'
+import mainPage from './pages/mainPage/mainPage.js'
 
 import { IntlProvider } from 'react-intl'
 
 
 
-import { twitterResultsSimple } from './articles/mockTwitterResults.js'
+import { twitterResultsSimple } from './containers/articles/mockTwitterResults.js'
 const initialState = {
   application: {
     token: storage.get('token'),
@@ -90,8 +93,6 @@ function getRootChildren (props) {
 
 
 //import Application from './articles/containers/articles.container.js';
-import Application from './mainPage/app.js'
-import mainPage from './mainPage/mainPage.js'
 
 function renderRoutes (history) {
   return (

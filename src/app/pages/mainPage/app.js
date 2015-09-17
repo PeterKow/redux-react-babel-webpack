@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeaderMenu from '../headerMenu/containers/headerMenu.container.jsx';
+import HeaderMenu from '../../containers/headerMenu/containers/headerMenu.container.jsx';
 import { RouteHandler } from 'react-router';
 
 export default class mainApp extends Component {

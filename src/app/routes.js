@@ -1,8 +1,8 @@
 import React from 'react';
 import { DefaultRoute, Route, NotFoundRoute, Redirect } from 'react-router';
 
-import mainApp from './mainPage/app.js'
-import mainPage from './mainPage/mainPage.js'
+import mainApp from 'pages/mainPage/app.js'
+import mainPage from 'pages/mainPage/mainPage.js'
 
 const routes = (
   <Route name="app" path="/" handler={mainApp}>
