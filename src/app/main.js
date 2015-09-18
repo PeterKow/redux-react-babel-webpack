@@ -5,6 +5,7 @@ require('./main.css');
 console.log('Application is loaded!');
 
 import React, { PropTypes } from 'react';
+
 import { createStore, combineReducers, compose} from 'redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Provider, connect } from 'react-redux';

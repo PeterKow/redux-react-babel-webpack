@@ -5,6 +5,7 @@ import { Router, DefaultRoute, Route, NotFoundRoute, Redirect } from 'react-rout
 import Application from './pages/mainPage/app.js'
 import MainPage from './pages/mainPage/mainPage.js'
 import NotFoundRouteView from './pages/utils/notFoundRoute.js'
+import SearchArticles from './pages/mainSearchPage/searchArticles.js'
 
 function renderRoutes (history) {
   return (
@@ -13,6 +14,7 @@ function renderRoutes (history) {
         <Route path="/" component={ MainPage } />
       </Route>
 
+      <Route path="search" component={ SearchArticles } />
       <Route path="*" component={ NotFoundRouteView }/>
     </Router>
   )
