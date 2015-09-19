@@ -19,17 +19,16 @@ export default  React.createClass({
     });
   },
 
+  getValues(value, index){
+    return (<option key={index} value="other">{value}</option>);
+  },
+
   render() {
     return (
       <Input type="select" label="Select your programming language" placeholder="Select">
         <option value="select">{this.state.value}</option>
-        {values.map(getValues, this)}
+        {values.map(this.getValues, this)}
       </Input>
     );
   }
 });
-
-
-function getValues(value, index){
-  return (<option key={index} value="other">{value}</option>);
-}

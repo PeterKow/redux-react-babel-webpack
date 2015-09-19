@@ -7,22 +7,28 @@ import Router, { History } from 'react-router'
 
 var initialState = { searchKeywords: '', searchLocation: '', selectLanguage: ''};
 
-const MainSearch =  React.createClass({
+export default React.createClass({
   mixins: [History],
   onSubmit: onSubmit,
+  preventDefaultSubmit: preventDefaultSubmit,
   render: render
 });
 
-function onSubmit () {
+function onSubmit (e) {
   console.log('weqwe', this.refs.language.state.value)
   console.log('weqwe', this.refs.location.state.value)
   console.log('weqwe', this.refs.keywords.state.value)
-  this.history.pushState(null, `/`, null);
+  this.preventDefaultSubmit(e);
+  this.history.pushState(null, `/`);
+}
+
+function preventDefaultSubmit (e) {
+  e.preventDefault()
 }
 
 function render() {
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form>
       <SelectLanguage ref='language'/>
       <SearchLocation ref='location'/>
       <SearchKeyWords ref='keywords'/>
@@ -30,6 +36,3 @@ function render() {
     </form>
   )
 }
-
-export default MainSearch;
-
