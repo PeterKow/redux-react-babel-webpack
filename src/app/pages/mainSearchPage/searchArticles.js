@@ -22,16 +22,13 @@ const logo = {
 }
 
 export default class SearchArticles extends Component{
-  handleSubmit (e){
-    console.log('meee', e)
-  }
 
   render (){
     return (
       <div style={positionAbsolute}>
 
         <img src="/images/aurity_logo_v32_big.png" style={logo}/>
-        <MainSearch onChange={ this.handleSubmit }/>
+        <MainSearch/>
 
       </div>
     )
