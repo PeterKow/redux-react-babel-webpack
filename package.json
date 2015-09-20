@@ -32,6 +32,7 @@
     "history": "^1.8.4",
     "http-proxy": "^1.11.2",
     "install": "^0.1.8",
+    "keymirror": "^0.1.1",
     "moment": "^2.10.6",
     "mongoose": "^3.8.23",
     "morgan": "^1.6.1",

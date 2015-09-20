@@ -6,7 +6,7 @@ import logger from '../middleware/logger'
 
 import { devTools, persistState } from 'redux-devtools';
 import persistenceStore from '../persistance/store.js'
-import reducers from '../containers/articles/reducers.js'
+import combinedReducer from '../app.reducers.js'
 
 let combinedCreateStore
 const storeEnhancers = [persistenceStore]
@@ -26,20 +26,16 @@ combinedCreateStore = compose(...storeEnhancers)(createStore)
 //  createStore
 //);
 
-//const store = finalCreateStore(miniarticleApp);
-
 const finalCreateStore = applyMiddleware(thunk, logger)(combinedCreateStore)
-//const combinedReducer = combineReducers(reducers)
-const combinedReducer = reducers
 
 export default function configureStore (initialState) {
 
-  const store = finalCreateStore(combinedReducer, initialState)
+  const store = finalCreateStore(combinedReducer)
 
   if (module.hot)
   // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../containers/articles/reducers', () => {
-      const nextRootReducer = require('../containers/articles/reducers')
+    module.hot.accept('../app.reducers.js', () => {
+      const nextRootReducer = require('../app.reducers.js')
       store.replaceReducer(nextRootReducer)
     })
 

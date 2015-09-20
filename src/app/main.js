@@ -13,11 +13,7 @@ import createHashHistory from 'history/lib/createBrowserHistory';
 import createBrowserHistory from 'history/lib/createHashHistory';
 import configureStore from './utils/configure-store.js';
 import HeaderMenu from './containers/headerMenu/containers/headerMenu.container.jsx';
-import miniarticleApp from './containers/articles/reducers.js';
 import * as storage from './persistance/storage.js'
-
-
-
 import { IntlProvider } from 'react-intl'
 
 import { twitterResultsSimple } from './containers/articles/mockTwitterResults.js'
@@ -28,6 +24,7 @@ const initialState = {
     user: { permissions: [/*'manage_account'*/] }
   }
 }
+
 initialState.miniarticles = twitterResultsSimple;
 initialState.visibilityFilter = "SHOW_ALL";
 

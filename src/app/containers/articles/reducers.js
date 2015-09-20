@@ -13,12 +13,12 @@ const initApplication = {
     user: { permissions: [/*'manage_account'*/] }
 };
 
-function application(state = initApplication, action = { type : undefined}){
+export function application(state = initApplication, action = { type : undefined}){
   return state;
 }
 
 
-function visibilityFilter(state = SHOW_ALL, action = { type : undefined}) {
+export function visibilityFilter(state = SHOW_ALL, action = { type : undefined}) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;
@@ -27,7 +27,7 @@ function visibilityFilter(state = SHOW_ALL, action = { type : undefined}) {
   }
 }
 
-function miniarticles(state = initialState, action = { type : undefined}) {
+export function miniarticles(state = initialState, action = { type : undefined}) {
   switch (action.type) {
     case ADD_MINIARTICLE:
       return [{
@@ -46,10 +46,10 @@ function miniarticles(state = initialState, action = { type : undefined}) {
   }
 }
 
-const miniarticleApp = combineReducers({
-  application,
-  visibilityFilter,
-  miniarticles
-});
+//const miniarticleApp = combineReducers({
+//  application,
+//  visibilityFilter,
+//  miniarticles
+//});
 
-export default miniarticleApp;
+//export default miniarticleApp;
