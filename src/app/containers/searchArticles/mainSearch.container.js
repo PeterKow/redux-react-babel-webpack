@@ -32,9 +32,9 @@ function render() {
   const { searchArticles } = this.props
   return (
     <form>
-      <SelectLanguage ref='language' />
-      <SearchLocation ref='location'/>
-      <SearchKeyWords ref='keywords'/>
+      <SelectLanguage ref='language' language={searchArticles.language} />
+      <SearchLocation ref='location' location={searchArticles.location} />
+      <SearchKeyWords ref='keywords' keywords={searchArticles.keywords} />
       <ButtonInput style={{ width: '100%' }} type="submit" value="Search articles" onClick={ this.onSubmit }  />
     </form>
   )

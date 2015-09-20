@@ -4,8 +4,12 @@ import { Input } from 'react-bootstrap';
 export default  React.createClass({
   getInitialState() {
     return {
-      value: ''
+      value: this.props.location
     };
+  },
+
+  propType: {
+    location: React.PropTypes.string
   },
 
 

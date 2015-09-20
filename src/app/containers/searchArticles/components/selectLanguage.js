@@ -1,12 +1,13 @@
 import React from 'react'
-import { Input } from 'react-bootstrap';
+import { Input } from 'react-bootstrap'
+import _ from 'lodash'
 
 const values = ['ABAP', "C", "C++", "C#", "Java", "JavaScript", "Objective-C", "PHP", "Python", "Swift", "SQL", "Ruby"];
 
 export default  React.createClass({
   getInitialState() {
     return {
-      value: values[5]
+      value: values[_.findIndex(values, (language) => { return language === this.props.language; } )]
     };
   },
 
