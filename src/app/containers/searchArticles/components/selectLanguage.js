@@ -21,12 +21,12 @@ export default  React.createClass({
   },
 
   getValues(value, index){
-    return (<option key={index} value="other">{value}</option>);
+    return (<option key={index} value={value}>{value}</option>);
   },
 
   render() {
     return (
-      <Input type="select" label="Select your programming language" placeholder="Select">
+      <Input ref="input" type="select" label="Select your programming language" placeholder="Select" onChange={this.handleChange}>
         <option value="select">{this.state.value}</option>
         {values.map(this.getValues, this)}
       </Input>

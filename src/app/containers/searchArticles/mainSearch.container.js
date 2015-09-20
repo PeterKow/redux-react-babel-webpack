@@ -19,6 +19,7 @@ const searchArticlesApp = React.createClass({
 function onSubmit (e) {
   const { dispatch } = this.props
   const { language, location, keywords } = this.refs
+  console.log('language.state.value',language)
   const payload = {
     location: location.state.value,
     keywords: keywords.state.value,
