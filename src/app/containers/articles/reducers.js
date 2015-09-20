@@ -1,12 +1,24 @@
 import { combineReducers } from 'redux';
 import { ADD_MINIARTICLE, COMPLETE_MINI_ARTICLE, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions';
 import { twitterResultsSimple } from './mockTwitterResults.js'
+import * as storage from '../../persistance/storage.js';
 const { SHOW_ALL } = VisibilityFilters;
 
 
 const initialState = twitterResultsSimple;
 
-function visibilityFilter(state = SHOW_ALL, action = { type : 'READ'}) {
+const initApplication = {
+  token: storage.get('token'),
+    locale: storage.get('locale') || 'en',
+    user: { permissions: [/*'manage_account'*/] }
+};
+
+export function application(state = initApplication, action = { type : undefined}){
+  return state;
+}
+
+
+export function visibilityFilter(state = SHOW_ALL, action = { type : undefined}) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;
@@ -15,7 +27,7 @@ function visibilityFilter(state = SHOW_ALL, action = { type : 'READ'}) {
   }
 }
 
-function miniarticles(state = initialState, action = { type : 'READ'}) {
+export function miniarticles(state = initialState, action = { type : undefined}) {
   switch (action.type) {
     case ADD_MINIARTICLE:
       return [{
@@ -34,9 +46,10 @@ function miniarticles(state = initialState, action = { type : 'READ'}) {
   }
 }
 
-const miniarticleApp = combineReducers({
-  visibilityFilter,
-  miniarticles
-});
+//const miniarticleApp = combineReducers({
+//  application,
+//  visibilityFilter,
+//  miniarticles
+//});
 
-export default miniarticleApp;
+//export default miniarticleApp;

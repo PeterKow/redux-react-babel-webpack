@@ -12,6 +12,7 @@ export default class Articles extends Component {
   render() {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
+    console.log('sadsdad', visibleTodos);
     return (
       <div style={articlesContainerStyle}>
         <AddMiniArticle
