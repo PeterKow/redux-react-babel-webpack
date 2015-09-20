@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { ButtonInput } from 'react-bootstrap';
-import SearchLocation from './searchLocation.js'
-import SearchKeyWords from './searchKeywords.js'
-import SelectLanguage from './selectLanguage.js'
+import SearchLocation from './components/searchLocation.js'
+import SearchKeyWords from './components/searchKeywords.js'
+import SelectLanguage from './components/selectLanguage.js'
 import Router, { History } from 'react-router'
 
 var initialState = { searchKeywords: '', searchLocation: '', selectLanguage: ''};
 
-export default React.createClass({
+const searchArticlesApp = React.createClass({
   mixins: [History],
   onSubmit: onSubmit,
   preventDefaultSubmit: preventDefaultSubmit,
@@ -27,12 +28,22 @@ function preventDefaultSubmit (e) {
 }
 
 function render() {
+
+  const { searchArticles } = this.props
   return (
     <form>
-      <SelectLanguage ref='language'/>
+      <SelectLanguage ref='language' />
       <SearchLocation ref='location'/>
       <SearchKeyWords ref='keywords'/>
       <ButtonInput style={{ width: '100%' }} type="submit" value="Search articles" onClick={ this.onSubmit }  />
     </form>
   )
 }
+
+function select(state){
+  return {
+    searchArticles: state.searchArticles
+  }
+}
+
+export default connect(select)(searchArticlesApp);

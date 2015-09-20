@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MainSearch from '../../containers/searchArticles/components/mainSearch.js'
+import MainSearch from '../../containers/searchArticles/mainSearch.container.js'
 
 
 const positionAbsolute = {
