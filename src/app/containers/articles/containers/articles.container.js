@@ -3,16 +3,31 @@
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addMiniArticle, completeMiniArticle, setVisibilityFilter, VisibilityFilters } from '../actions';
+import { addMiniArticle, completeMiniArticle, setVisibilityFilter, VisibilityFilters, fetchMiniArticles} from '../actions';
 import AddMiniArticle from '../components/addMiniArticle.jsx';
 import MiniArticleList from '../components/miniArticleList.jsx';
 import Filter from '../components/filter.jsx';
 
 export default class Articles extends Component {
+
+  componentWillMount () {
+    const { dispatch, searchArticles } = this.props;
+    dispatch(fetchMiniArticles(searchArticles.toJSON()));
+  }
+
+  componentWillReceiveProps (newProps) {
+    const { dispatch, searchArticles } = this.props;
+    if (newProps.searchArticles !== searchArticles){
+      dispatch(fetchMiniArticles(searchArticles.toJSON()));
+    }
+  }
+  //componentDidUpdate (prew) {
+  //  console.log('goo', prew)
+  //}
+
   render() {
     // Injected by connect() call:
-    const { dispatch, visibleTodos, visibilityFilter } = this.props;
-    console.log('sadsdad', visibleTodos);
+    const { dispatch, visibleTodos, visibilityFilter, searchArticles } = this.props;
     return (
       <div style={articlesContainerStyle}>
         <AddMiniArticle
@@ -65,7 +80,8 @@ function selectMiniArticles(miniArticles, filter) {
 function select(state) {
   return {
     visibleTodos: selectMiniArticles(state.miniarticles, state.visibilityFilter),
-    visibilityFilter: state.visibilityFilter
+    visibilityFilter: state.visibilityFilter,
+    searchArticles: state.searchArticles
   };
 }
 

@@ -4,7 +4,7 @@
 export const twitterResultsSimple = [
   {
     id: 2,
-    image: 'http://pbs.twimg.com/profile_images/625504979898400768/-ftYGjcR_normal.jpg',
+    image: 'https://pbs.twimg.com/profile_images/615392662233808896/EtxjSSKk_normal.jpg',
     author: 'Irfan',
     text: 'RT @VersatileStaff: #versatilestaff #frontendDeveloper #London #javaScript #ember #reactjs #angularjs ' +
           'Frontend Developer required for L…htt…',
@@ -27,5 +27,18 @@ export const twitterResultsSimple = [
     completed: false
   }
 ];
+
 export const twitterResultsAll = [];
+
+export function randomResponse() {
+  const maxRowsUpto10 = Math.floor((Math.random() * 10) +1 );
+  let i = 0;
+  const response = [];
+  while (i !== maxRowsUpto10){
+    const indexBetween0to2 = Math.floor((Math.random() * 10) % 3);
+    response.push(twitterResultsSimple[indexBetween0to2]);
+    i++;
+  }
+  return response
+}
 

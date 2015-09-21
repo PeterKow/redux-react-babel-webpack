@@ -10,7 +10,6 @@ const initialState = Immutable.Map({
 function searchArticlesReducer(state = initialState, action = { type: undefined}){
   switch (action.type){
     case SEARCH_ARTICLES:
-      console.log('new State', action.newSearch)
       return state.merge(action.newSearch)
     default:
       return state
