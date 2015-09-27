@@ -21,7 +21,7 @@ class HeaderMenu extends Component {
             <form>
               <div className="col-md-3">
                 <div style={centerInputs}>
-                  <SelectLanguage ref='language' language={searchArticles.get('language')} />
+                  <SelectLanguage ref='language' defaultLanguage={searchArticles.get('language')} />
                 </div>
               </div>
               <div className="col-md-3">
