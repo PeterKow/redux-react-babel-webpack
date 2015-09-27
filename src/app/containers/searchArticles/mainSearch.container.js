@@ -36,10 +36,11 @@ function preventDefaultSubmit (e) {
 
 function render() {
 
+  //TODO: change it to form-serialize or try redux-form
   const { searchArticles } = this.props
   return (
     <form>
-      <SelectLanguage ref='language' language={searchArticles.get('language')} />
+      <SelectLanguage ref='language' defaultLanguage={searchArticles.get('language')} label="Select your programming language"/>
       <SearchLocation ref='location' location={searchArticles.get('location')} />
       <SearchKeyWords ref='keywords' keywords={searchArticles.get('keywords')} />
       <ButtonInput style={{ width: '100%' }} type="submit" value="Search articles" onClick={ this.onSubmit } />

@@ -7,10 +7,14 @@ const values = ['ABAP', "C", "C++", "C#", "Java", "JavaScript", "Objective-C", "
 export default  React.createClass({
   getInitialState() {
     return {
-      value: values[_.findIndex(values, (language) => { return language === this.props.language; } )]
+      value: values[_.findIndex(values, (language) => { return language === this.props.defaultLanguage; } )]
     };
   },
 
+  propTypes: {
+    defaultLanguage: React.PropTypes.string,
+    label: React.PropTypes.string
+  },
 
   handleChange() {
     // This could also be done using ReactLink:
@@ -26,10 +30,11 @@ export default  React.createClass({
 
   render() {
     return (
-      <Input ref="input" type="select" label="Select your programming language" placeholder="Select" onChange={this.handleChange}>
+      <Input ref="input" type="select" label={this.props.label} placeholder="Select" onChange={this.handleChange}>
         <option value="select">{this.state.value}</option>
         {values.map(this.getValues, this)}
       </Input>
     );
   }
 });
+
