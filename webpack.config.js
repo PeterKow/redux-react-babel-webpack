@@ -8,7 +8,7 @@ var config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   entry: [
 
     // For hot style updates
