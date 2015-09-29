@@ -7,7 +7,7 @@ const values = ['ABAP', "C", "C++", "C#", "Java", "JavaScript", "Objective-C", "
 export default  React.createClass({
   getInitialState() {
     return {
-      value: values[_.findIndex(values, (language) => { return language === this.props.defaultLanguage; } )]
+      value: values[_.findIndex(values, (language) => { return language === this.props.defaultLanguage ; } )]
     };
   },
 
