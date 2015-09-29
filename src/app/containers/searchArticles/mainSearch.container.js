@@ -10,7 +10,6 @@ import { searchArticles } from './searchArticles.actions.js'
 var initialState = { searchKeywords: '', searchLocation: '', selectLanguage: ''};
 
 const searchArticlesApp = React.createClass({
-  //mixins: [History],
   onSubmit: onSubmit,
   preventDefaultSubmit: preventDefaultSubmit,
   render: render,
@@ -20,17 +19,22 @@ const searchArticlesApp = React.createClass({
 });
 
 function onSubmit (e) {
-  const { dispatch, sendValues } = this.props
+  const {  sendValues, searchArticles } = this.props
   const { language, location, keywords } = this.refs
   const payload = {
-    location: location.state.value,
-    keywords: keywords.state.value,
-    language: language.state.value
-  }
+      newData: {
+        location: location.state.value,
+        keywords: keywords.state.value,
+        language: language.state.value
+      },
+      oldData: {
+        location: searchArticles.get('location'),
+        keywords: searchArticles.get('keywords'),
+        language: searchArticles.get('language')
+      }
+    }
   sendValues(payload);
-  //dispatch(searchArticles(payload))
   this.preventDefaultSubmit(e);
-  //this.history.pushState(null, `/`);
 }
 
 function preventDefaultSubmit (e) {

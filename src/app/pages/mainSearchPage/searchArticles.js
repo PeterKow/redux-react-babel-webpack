@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import shallowEqual from 'react-redux/lib/utils/shallowEqual'
 import MainSearch from '../../containers/searchArticles/mainSearch.container.js'
 import { triggerNewSearchArticles } from './searchArticles.page.reducers.js'
 
@@ -7,10 +8,10 @@ export default class SearchArticles extends Component{
 
   onSubmit(formData) {
     const { dispatch } = this.props
-    console.log('form. ', formData)
 
-    //setTimeout(() => {this.props.history.pushState(null, `/`)}, 0);
-    dispatch(triggerNewSearchArticles(formData))
+    if(!shallowEqual(formData.oldData, formData.newData)) {
+      dispatch(triggerNewSearchArticles(formData.newData))
+    }
     this.props.history.pushState(null, `/`)
   }
 
