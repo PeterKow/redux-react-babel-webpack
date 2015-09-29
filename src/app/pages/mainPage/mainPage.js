@@ -16,6 +16,7 @@ export default class MainPage extends Component {
 
     const { dispatch, miniArticles, visibilityFilter } = this.props;
     const data = miniArticles.length ? miniArticles :  [];
+    const isFetching = !!miniArticles.isFetching;
 
     return  (
         <div style={articlesContainerStyle}>
@@ -23,7 +24,7 @@ export default class MainPage extends Component {
             onAddClick={text =>
             dispatch(addMiniArticle(text))
           } />
-        <Articles isFetching={true} miniArticles={data}/>
+        <Articles isFetching={isFetching} miniArticles={data}/>
           <Filter
             filter={visibilityFilter}
             onFilterChange={nextFilter =>

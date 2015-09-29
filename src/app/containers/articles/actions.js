@@ -38,7 +38,10 @@ export function newMiniArticles(newMiniArticles){
   return { type: NEW_MINI_ARTICLES, newMiniArticles}
 }
 
-export function fetchMiniArticles(query){
-  return fetch('https://api.github.com/users/peterkow')
+export function fetchMiniArticles(query) {
+  return dispatch => {
+    dispatch( { type: FETCH_MINI_ARTICLES } )
+    return fetch('https://api.github.com/users/peterkow')
       .then(res => res.json())
+  }
 }
