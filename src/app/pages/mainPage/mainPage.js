@@ -23,7 +23,7 @@ export default class MainPage extends Component {
             onAddClick={text =>
             dispatch(addMiniArticle(text))
           } />
-        <Articles miniArticles={data}/>
+        <Articles isFetching={true} miniArticles={data}/>
           <Filter
             filter={visibilityFilter}
             onFilterChange={nextFilter =>
