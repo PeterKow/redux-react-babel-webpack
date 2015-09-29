@@ -7,8 +7,9 @@ In the backend Node ES6 with MongoDB and passport auth.
 
 Note: running mongodb required
 
-Git checkout to refactor_act2 branch!
+Git checkout to *refactor_act2* branch!
 ```git checkout refactor_act2```
+
 Install:
 ```npm install```
 
