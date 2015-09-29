@@ -2,6 +2,7 @@
  * Created by Peter on 29/08/15.
  */
 require('./main.css');
+require("font-awesome-webpack");
 console.log('Application is loaded!');
 
 import React, { PropTypes } from 'react';
