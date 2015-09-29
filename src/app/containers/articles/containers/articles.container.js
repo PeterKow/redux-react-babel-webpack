@@ -6,14 +6,16 @@ import { connect } from 'react-redux';
 import { completeMiniArticle, fetchMiniArticles} from '../actions';
 import MiniArticleList from '../components/miniArticleList.jsx';
 
-import { randomResponse } from '../mockTwitterResults.js'
-
 export default class Articles extends Component {
 
   componentWillMount () {
     const { dispatch, searchArticles } = this.props;
     dispatch(fetchMiniArticles(searchArticles.toJSON()));
   }
+
+  propTypes: {
+    miniArticles: React.PropTypes.array.isRequired
+    }
 
   componentDidUpdate (newProps) {
     const { dispatch, searchArticles } = this.props;
@@ -26,19 +28,13 @@ export default class Articles extends Component {
     // Injected by connect() call:
     const { dispatch, miniArticles } = this.props;
 
-    const data =  randomResponse();
     return (
         <MiniArticleList
-          miniarticles={data}
-          onMiniArticleClick={index =>{
-          debugger;
-            dispatch(completeMiniArticle(index))
-          }} />
+          miniarticles={miniArticles}
+          onMiniArticleClick={index =>dispatch(completeMiniArticle(index))} />
     );
   }
 };
-
-
 
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
