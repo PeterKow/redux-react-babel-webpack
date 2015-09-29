@@ -8,21 +8,21 @@ import MiniArticleList from '../components/miniArticleList.jsx';
 
 export default class Articles extends Component {
 
-  componentWillMount () {
-    const { dispatch, searchArticles } = this.props;
-    dispatch(fetchMiniArticles(searchArticles.toJSON()));
-  }
+  //componentWillMount () {
+  //  //const { dispatch, searchArticles } = this.props;
+  //  //dispatch(fetchMiniArticles(searchArticles.toJSON()));
+  //}
 
   propTypes: {
     miniArticles: React.PropTypes.array.isRequired
     }
 
-  componentDidUpdate (newProps) {
-    const { dispatch, searchArticles } = this.props;
-    if (newProps.searchArticles.toString()  !==  searchArticles.toString()){
-      dispatch(fetchMiniArticles(searchArticles.toJSON()));
-    }
-  }
+  //componentDidUpdate (newProps) {
+  //  const { dispatch, searchArticles } = this.props;
+  //  if (newProps.searchArticles.toString()  !==  searchArticles.toString()){
+  //    dispatch(fetchMiniArticles(searchArticles.toJSON()));
+  //  }
+  //}
 
   render() {
     // Injected by connect() call:
@@ -39,9 +39,7 @@ export default class Articles extends Component {
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
-  return {
-    searchArticles: state.searchArticles
-  };
+  return {};
 }
 
 // Wrap the component to inject dispatch and state into it

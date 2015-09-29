@@ -1,6 +1,34 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import MainSearch from '../../containers/searchArticles/mainSearch.container.js'
+import { triggerNewSearchArticles } from './searchArticles.page.reducers.js'
 
+export default class SearchArticles extends Component{
+
+  onSubmit(formData) {
+    const { dispatch } = this.props
+    console.log('form. ', formData)
+
+    //setTimeout(() => {this.props.history.pushState(null, `/`)}, 0);
+    dispatch(triggerNewSearchArticles(formData))
+    this.props.history.pushState(null, `/`)
+  }
+
+  render (){
+    return (
+      <div style={positionAbsolute}>
+        <img src="/images/aurity_logo_v32_big.png" style={logo}/>
+        <MainSearch sendValues={::this.onSubmit}/>
+      </div>
+    )
+  }
+}
+
+function select(state){
+  return {}
+}
+
+export default connect(select)(SearchArticles);
 
 const positionAbsolute = {
   position: 'absolute',
@@ -20,22 +48,6 @@ const logo = {
   marginRight: 'auto',
   padding: '10px 0 10px 0'
 }
-
-export default class SearchArticles extends Component{
-
-  render (){
-    return (
-      <div style={positionAbsolute}>
-
-        <img src="/images/aurity_logo_v32_big.png" style={logo}/>
-        <MainSearch/>
-
-      </div>
-    )
-  }
-}
-
-
 
 
 

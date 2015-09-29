@@ -39,9 +39,6 @@ export function newMiniArticles(newMiniArticles){
 }
 
 export function fetchMiniArticles(query){
-  return dispatch => {
-    fetch('https://api.github.com/users/peterkow')
-      .then(res => res.json)
-      .then(res => dispatch(newMiniArticles(randomResponse())))
-  }
+  return fetch('https://api.github.com/users/peterkow')
+      .then(res => res.json())
 }
