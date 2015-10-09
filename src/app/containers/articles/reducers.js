@@ -9,9 +9,8 @@ const { SHOW_ALL } = VisibilityFilters;
 const initialState = twitterResultsSimple;
 
 const initApplication = {
-  token: storage.get('token'),
-    locale: storage.get('locale') || 'en',
-    user: { permissions: [/*'manage_account'*/] }
+    token: storage.get('token'),
+    locale: storage.get('locale') || 'en'
 };
 
 export function application(state = initApplication, action = { type : undefined}){

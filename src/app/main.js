@@ -23,7 +23,7 @@ const initialState = {
   application: {
     token: storage.get('token'),
     locale: storage.get('locale') || 'en',
-    user: { permissions: [/*'manage_account'*/] }
+    user: { tokens: {} /*'manage_account'*/ }
   }
 }
 

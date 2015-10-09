@@ -34,7 +34,7 @@ module.exports = function () {
 
     // Configure hot replacement
     hot: true,
-
+    headers: { 'Access-Control-Allow-Origin': '*' },
     // The rest is terminal configurations
     quiet: false,
     noInfo: true,
