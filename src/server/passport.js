@@ -10,26 +10,8 @@ import User from  './model/user.model';
 import twitterConfig from './config';
 
 export default function init(app) {
-// required for passport
-  app.use(session({ secret: 'thisismyamazingsecretgrifi' })); // session secret
-  app.use(passport.initialize());
-  app.use(passport.session()); // persistent login sessions
-  app.use(flash()); // use connect-flash for flash messages stored in session
-
 
 // load the auth variables
-
-  // used to serialize the user for the session
-  passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
-
-  // used to deserialize the user
-  passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-      done(err, user);
-    });
-  });
 
   // code for login (use('local-login', new LocalStategy))
   // code for signup (use('local-signup', new LocalStategy))
@@ -55,6 +37,29 @@ export default function init(app) {
 
     }));
 
+  // used to serialize the user for the session
+  passport.serializeUser(function(user, done) {
+    console.log('serialize', user)
+    done(null, user.id);
+  });
+
+  // used to deserialize the user
+  passport.deserializeUser(function(id, done) {
+
+    console.log('deserializeUser', id)
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
+
+  // required for passport
+  app.use(session({ secret: 'thisismyamazingsecretgrifi' })); // session secret
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
+  app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+
   return passport;
 
 };
@@ -69,6 +74,7 @@ function loginOrCreateNewUserAndLogin(token, profile, done) {
 
     // if the user is found then log them in
     if (user) {
+      console.log('have user!', user)
       return done(null, user); // user found, return that user
     } else {
       // if there is no user, create them
@@ -97,6 +103,7 @@ function createNewTwitterUser(profile, token){
   }
   newUser.twitter.displayName = profile.displayName;
 
+  console.log('NEW user!', newUser)
   return newUser;
 
 }

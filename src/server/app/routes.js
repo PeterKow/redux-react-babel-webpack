@@ -15,9 +15,7 @@ module.exports = function(app, passport) {
 
   // route for showing the profile page
   app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.ejs', {
-      user : req.user // get the user out of session and pass to template
-    });
+    return res.send(req.user);
   });
 
   // route for logging out
@@ -26,7 +24,6 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-  // facebook routes
 
   // =====================================
   // TWITTER ROUTES ======================
@@ -37,26 +34,25 @@ module.exports = function(app, passport) {
 
   // handle the callback after twitter has authenticated the user
   app.get('/auth/twitter/callback',
-//    passport.authenticate('twitter', {
-//    successRedirect : '/',
-//    failureRedirect : '/login'
-//}))
+    passport.authenticate('twitter', {
+    successRedirect : '/profile',
+    failureRedirect : '/login'
+  }))
 
-    function (req, res, next) {
-    passport.authenticate('twitter',
-      function(err, user, info) {
-        console.log('err,', err)
-        console.log('user,', user)
-        console.log('info,', info)
-        res.user = user;
-        return res.redirect('/user?id=' + user.id + '&token=' + user.token);
-      }
-     )(req, res, next)
-    }
-  );
+  //  function (req, res, next) {
+  //  passport.authenticate('twitter',
+  //    function(err, user, info) {
+  //      console.log('err,', err)
+  //      console.log('user,', user)
+  //      console.log('info,', info)
+  //      res.user = user;
+  //      return res.redirect('/user?id=' + user.id + '&token=' + user.token);
+  //    }
+  //   )(req, res, next)
+  //  }
+  //);
 
 };
-
 
 //{
 //  successRedirect : '/',
@@ -65,7 +61,6 @@ module.exports = function(app, passport) {
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
-  console.log('logged!!!!!!!!!!!!!!!!');
 
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated())

@@ -10,7 +10,7 @@ export default {
   TWITTER_AUTH: {
     TWITTER_KEY: process.env.TWITTER_KEY || 'cCQtvCWf3fGO32gUFPYM3hywq',
     TWITTER_SECRET: process.env.TWITTER_SECRET || 'N3EuSzOD7v1iuQV7EIGlXWzPngd0OhqylwgrYCnBChuzFf2q7M',
-    TWITTER_CALLBACK: process.env.TWITTER_CALLBACK || 'http://127.0.0.1:5000/auth/twitter/callback'
+    TWITTER_CALLBACK: process.env.TWITTER_CALLBACK || 'http://127.0.0.1:8000/auth/twitter/callback'
     //TWITTER_KEY: process.env.TWITTER_KEY || 'Twitter Consumer Key',
     //TWITTER_SECRET: process.env.TWITTER_SECRET || 'Twitter Consumer Secret',
     //TWITTER_CALLBACK: process.env.TWITTER_CALLBACK || 'Twitter Callback Url',

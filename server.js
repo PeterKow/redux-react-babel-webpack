@@ -8,7 +8,7 @@ var path = require('path');
 var morgan =  require('morgan');
 var cookieParser =  require('cookie-parser');
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8000;
 var environment = process.env.NODE_ENV;
 
 var MONGO_DB = require('./src/server/config').MONGO_DB;
@@ -30,7 +30,12 @@ var webpackServerRunning = require('./webpackServer')(app);
 
 // passport init
 var passport = require('./src/server/passport')(app);
-require('./src/server/app/routes.js')(app, passport);
+var routes = require('./src/server/app/routes.js')(app, passport);
+
+// all routes are handled by client
+app.get('/*', function(req, res, next){
+  res.sendFile(path.join(publicPath, 'index.html'));
+})
 
 app.listen(port, function() {
   console.log('Server started at port ', port);
