@@ -14,8 +14,10 @@ module.exports = function(app, passport) {
   // route for processing the signup form
 
   // route for showing the profile page
-  app.get('/profile', isLoggedIn, function(req, res) {
-    return res.send(req.user);
+  app.get('/profile', function(req, res) {
+    const response = req.user ? req.user : {}
+    console.log('res -- profile', response)
+    return res.send(response);
   });
 
   // route for logging out
@@ -34,7 +36,7 @@ module.exports = function(app, passport) {
   // handle the callback after twitter has authenticated the user
   app.get('/auth/twitter/callback',
     passport.authenticate('twitter', {
-    successRedirect : '/profile',
+    successRedirect : '/profileMe',
     failureRedirect : '/login'
   }))
 
