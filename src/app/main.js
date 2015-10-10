@@ -22,9 +22,12 @@ import { twitterResultsSimple } from './containers/articles/mockTwitterResults.j
 const initialState = {
   application: {
     token: storage.get('token'),
-    locale: storage.get('locale') || 'en',
-    user: { tokens: {} /*'manage_account'*/ }
-  }
+    locale: storage.get('locale') || 'en'
+  },
+  //user: {
+  //  tokens: {} /*'manage_account'*/,
+  //  //fetchingAuth: false
+  //}
 }
 
 initialState.miniarticles = twitterResultsSimple;

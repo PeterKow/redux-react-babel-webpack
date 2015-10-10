@@ -20,17 +20,12 @@ if (__DEVTOOLS__) {
 }
 combinedCreateStore = compose(...storeEnhancers)(createStore)
 
-//const finalCreateStore = compose(
-//  devTools(),
-//
-//  createStore
-//);
 
 const finalCreateStore = applyMiddleware(thunk, logger)(combinedCreateStore)
 
 export default function configureStore (initialState) {
 
-  const store = finalCreateStore(combinedReducer)
+  const store = finalCreateStore(combinedReducer, initialState)
 
   if (module.hot)
   // Enable Webpack hot module replacement for reducers
