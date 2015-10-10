@@ -16,7 +16,7 @@ class HeaderMenu extends Component {
         <div style={{marginTop: 5}}>
           <div className="row">
             <div className="col-md-2">
-              <a href="/"><img src="/images/aurity_logo_v32_small.png" style={logoTopStyle}/></a>
+              <a href="/search"><img src="/images/aurity_logo_v32_small.png" style={logoTopStyle}/></a>
             </div>
             <form>
               <div className="col-md-3">
@@ -36,7 +36,7 @@ class HeaderMenu extends Component {
               </div>
             </form>
             <div className="col-md-1">
-            <a href className="dropdown-toggle">
+            <a href='/profileMe' className="dropdown-toggle">
               <img style={{height: 40, borderRadius: 10}} src="/images/me.png"/>
             </a>
             </div>

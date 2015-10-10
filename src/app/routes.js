@@ -24,14 +24,14 @@ function renderRoutes (history) {
     queryKey: false
   });
   return (
-    <Router history={history}>
+    <Router history={historyNew}>
       <Route component={ Application }>
-        <Route path="/" component={ MainPage } />
+        <Route path="/" component={ MainPage } onEnter={requireAuth}/>
       </Route>
 
-      <Route path="profileme" component={ ProfilePage }/>
+      <Route path="profileme" component={ ProfilePage } />
       <Route path="login" component={ Login } />
-      <Route path="search" component={ SearchArticles } onEnter={requireAuth} />
+      <Route path="search" component={ SearchArticles }/>
       <Route path="*" component={ NotFoundRouteView }/>
     </Router>
   )

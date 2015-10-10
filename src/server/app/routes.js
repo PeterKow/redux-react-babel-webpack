@@ -24,7 +24,6 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-
   // =====================================
   // TWITTER ROUTES ======================
   // =====================================
@@ -66,6 +65,6 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
 
-  // if they aren't redirect them to the home page
-  res.redirect('/');
+  // if they aren't redirect them to the login page
+  res.redirect('/login');
 }
