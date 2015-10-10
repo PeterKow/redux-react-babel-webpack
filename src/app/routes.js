@@ -14,8 +14,7 @@ import createHistory from 'history/lib/createBrowserHistory';
 import createHashHistory from 'history/lib/createHashHistory';
 
 function requireAuth(nextState, replaceState) {
-  //if (!auth.loggedIn())
-  if (true)
+  if (!localStorage.token)
     replaceState({ nextPathname: nextState.location.pathname }, '/login')
 }
 
