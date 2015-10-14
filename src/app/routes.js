@@ -26,9 +26,9 @@ function renderRoutes (history) {
     <Router history={historyNew}>
       <Route component={ Application }>
         <Route path="/" component={ MainPage } onEnter={requireAuth}/>
+        <Route path="profileme" component={ ProfilePage } />
       </Route>
 
-      <Route path="profileme" component={ ProfilePage } />
       <Route path="login" component={ Login } />
       <Route path="search" component={ SearchArticles }/>
       <Route path="*" component={ NotFoundRouteView }/>

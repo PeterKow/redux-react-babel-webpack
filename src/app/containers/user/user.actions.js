@@ -3,22 +3,16 @@ import { AUTH_TWITTER, TWITTER_LOGIN, TWITTER_FAILED } from './user.actionTypes.
 export function authTwitter() {
   return dispatch => {
     dispatch({ type: AUTH_TWITTER })
-
-
-
-    //return {}
+    
     return fetch('/profile',{
       credentials: 'same-origin'
     })
       .then(res => res.json())
       .then(data => {
-        console.log('dispatch', dispatch )
-        console.log('data', data )
         if (data._id && data.twitter.token){
           dispatch(twitterLogin(data))
-          // TODO why it doesnt' redirect to / main page but stays on hello??!??!?
           // TODO create more dumb components and move dispatcher to parent -> actionName=dispatch(actionName()) and then child will just call this! :)
-          window.history.pushState(null, null, '/')
+          //window.history.pushState(null, null, '/')
         } else {
           dispatch(twitterFailed())
           window.history.pushState(null, null, '/login')

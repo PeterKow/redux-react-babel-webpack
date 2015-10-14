@@ -23,8 +23,17 @@ export default class Profile extends Component {
 
   }
 
+  propTypes: {
+    user: React.PropTypes.object.isRequired
+    }
+
   render() {
-    return (<h1>Hello</h1>)
+    return (
+      <div>
+        <h1>Hello Peter</h1>
+        <div>{JSON.stringify(this.props.user)}</div>
+      </div>
+    )
   }
 }
 

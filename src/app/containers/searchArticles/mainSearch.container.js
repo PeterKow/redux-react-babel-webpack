@@ -19,7 +19,7 @@ const searchArticlesApp = React.createClass({
 });
 
 function onSubmit (e) {
-  const {  sendValues, searchArticles } = this.props
+  const { sendValues, searchArticles } = this.props
   const { language, location, keywords } = this.refs
   const payload = {
       newData: {

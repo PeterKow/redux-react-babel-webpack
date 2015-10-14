@@ -19,7 +19,7 @@ export default class MainPage extends Component {
     const isFetching = !!miniArticles.isFetching;
 
     return  (
-        <div style={articlesContainerStyle}>
+        <div>
           <AddMiniArticle
             onAddClick={text =>
             dispatch(addMiniArticle(text))
@@ -58,22 +58,5 @@ function select(state) {
 
 // Wrap the component to inject dispatch and state into it
 export default connect(select)(MainPage);
-
-
-var articlesContainerStyle = {
-  font: '14px "Helvetica Neue", Helvetica, Arial, sans-serif',
-  lineHeight: 1.4,
-  background: '#f5f5f5',
-  color: '#4d4d4d',
-  minWidth: 230,
-  maxWidth: 850,
-  margin: '0 auto',
-  WebkitFontSmoothing: 'antialiased',
-  MozFontSmoothing: 'antialiased',
-  fontSmoothing: 'antialiased',
-  fontWeight: 300,
-  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(0, 0, 0, 0.0980392) 0px 25px 50px 0px'
-};
-
 
 
