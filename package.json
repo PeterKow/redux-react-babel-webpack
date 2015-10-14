@@ -6,12 +6,15 @@
   "scripts": {
     "babel-node": "babel-node --stage 0 ",
     "start": "npm run babel-node -- server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"src/test\" --compilers js:babel-core/register --recursive"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
     "mongoose": "^4.1.8",
+    "nock": "^2.15.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3",
     "react-hot-loader": "^1.3.0",
@@ -36,6 +39,7 @@
     "http-proxy": "^1.11.2",
     "immutable": "^3.7.5",
     "install": "^0.1.8",
+    "isomorphic-fetch": "^2.1.1",
     "keymirror": "^0.1.1",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
@@ -51,8 +55,7 @@
     "redux": "^3.0.2",
     "redux-thunk": "^1.0.0",
     "style-loader": "^0.12.4",
-    "webpack-dev-server": "^1.12.0",
-    "whatwg-fetch": "^0.9.0"
+    "webpack-dev-server": "^1.12.0"
   },
   "babel": {
     "stage": 0
