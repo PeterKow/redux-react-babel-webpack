@@ -23,8 +23,4 @@ function userReducer(state = initialState, action = { type : undefined }) {
   }
 }
 
-function setStorage(key, value){
-
-}
-
 export default userReducer
