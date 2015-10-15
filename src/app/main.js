@@ -50,7 +50,7 @@ function getRootChildren (props) {
   //</IntlProvider>
 
   const rootChildren = [
-    <div>{renderRoutes.bind(null, props.history)()}</div>
+    <div key='intl'>{renderRoutes.bind(null, props.history)()}</div>
   ]
 
   const __DEVTOOLS__ = false;
