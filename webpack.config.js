@@ -66,7 +66,13 @@ var config = {
   // We have to manually add the Hot Replacement plugin when running
   // from Node
   plugins: [
-    new Webpack.HotModuleReplacementPlugin()]
+    new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+        'DEVTOOLS': process.env.DEVTOOLS === 'true' ? true : false
+      },
+    })]
 };
 
 module.exports = config;

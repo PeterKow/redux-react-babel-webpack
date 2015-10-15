@@ -52,8 +52,7 @@ function getRootChildren (props) {
   const rootChildren = [
     <div key='intl'>{renderRoutes.bind(null, props.history)()}</div>
   ]
-
-  const __DEVTOOLS__ = false;
+  const __DEVTOOLS__ = process.env.DEVTOOLS;
   if (__DEVTOOLS__) {
     const { DevTools, DebugPanel, LogMonitor } =
       require('redux-devtools/lib/react')

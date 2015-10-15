@@ -12,7 +12,7 @@ let combinedCreateStore
 const storeEnhancers = [persistenceStore]
 
 //todo: add it to webpack global config
-const __DEVTOOLS__ =  false;
+const __DEVTOOLS__ =  process.env.DEVTOOLS;
 if (__DEVTOOLS__) {
   const { devTools } = require('redux-devtools')
   storeEnhancers.push(devTools())
