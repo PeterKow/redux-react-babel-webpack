@@ -3,7 +3,6 @@
  */
 require('./main.css');
 require("font-awesome-webpack");
-console.log('Application is loaded!');
 
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
@@ -44,13 +43,17 @@ function getRootChildren (props) {
     locale: props.application.locale,
     //messages: i18n[props.application.locale]
   }
+
+  //TODO IntlProvider doesnt work with 0.14
+  //<IntlProvider key="intl" {...intlData}>
+  //{renderRoutes.bind(null, props.history)}
+  //</IntlProvider>
+
   const rootChildren = [
-    <IntlProvider key="intl" {...intlData}>
-      {renderRoutes.bind(null, props.history)}
-    </IntlProvider>
+    <div>{renderRoutes.bind(null, props.history)()}</div>
   ]
 
-  const __DEVTOOLS__ = true;
+  const __DEVTOOLS__ = false;
   if (__DEVTOOLS__) {
     const { DevTools, DebugPanel, LogMonitor } =
       require('redux-devtools/lib/react')
@@ -63,22 +66,7 @@ function getRootChildren (props) {
   return rootChildren
 }
 
-
 import renderRoutes from './routes.js';
-
-
-//<Redirect from="/account" to="/account/profile" />
-//<Route path="stargazers" component={GithubStargazers}>
-//  <Route path=':username/:repo' component={GithubRepo} />
-//  <Route path=':username' component={GithubUser} />
-//  </Route>
-//    <Route path="about" component={About} />
-//    <Route path="account" component={Account} onEnter={requireAuth}>
-//      <Route path="profile" component={AccountHome} />
-//      <Route path="secret-area" component={SuperSecretArea} />
-//    </Route>
-//    <Route path="login" component={Login} />
-//    <Route path="logout" onEnter={logout} />
 
 function requireAuth (nextState, redirectTo) {
   const state = store.getState()
@@ -108,9 +96,9 @@ class Root extends React.Component {
   }
 }
 
-React.render(
+ReactDOM.render(
   <Provider store={store}>
-    {() => <Root history={history} />}
+    <Root history={history} />
   </Provider>
   , document.getElementById('app'))
 
