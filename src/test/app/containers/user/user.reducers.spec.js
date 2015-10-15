@@ -33,7 +33,7 @@ describe('User reducers', function(){
 
   })
 
-  it.only('TWITTER_LOGIN should set fetchingAuth to false', function(){
+  it('TWITTER_LOGIN should set fetchingAuth to false', function(){
 
     const action = {
       type: 'TWITTER_LOGIN',
