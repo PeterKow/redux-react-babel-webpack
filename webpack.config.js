@@ -67,6 +67,7 @@ var config = {
   // from Node
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.NoErrorsPlugin(),
     new Webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),
