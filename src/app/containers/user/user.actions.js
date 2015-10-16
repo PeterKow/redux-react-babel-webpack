@@ -8,7 +8,7 @@ export function authTwitter() {
   return dispatch => {
     dispatch({ type: AUTH_TWITTER })
 
-    return fetch('http://example.com/profile',{
+    return fetch('http://127.0.0.1:8000/profile',{
       credentials: 'same-origin'
     })
       .then(checkStatusCode)
