@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import SearchLocation from '../../searchArticles/components/searchLocation.js'
 import SearchKeyWords from '../../searchArticles/components/searchKeywords.js'
 import SelectLanguage from '../../searchArticles/components/selectLanguage.js'
+import DropDown from '../../utils/dropdown/dropdown.js'
 
-import MainSearch from '../../searchArticles/mainSearch.container.js'
+//import MainSearch from '../../searchArticles/mainSearch.container.js'
 
 class HeaderMenu extends Component {
   render() {
@@ -36,17 +37,25 @@ class HeaderMenu extends Component {
               </div>
             </form>
             <div className="col-md-1">
-            <a href='/profileMe' className="dropdown-toggle">
-              <img style={{height: 40, borderRadius: 10}} src="/images/me.png"/>
-            </a>
+
             </div>
           </div>
         </div>
         <GoldLine/>
+        <div className="btn-group">
+          <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Action <span className="caret"></span>
+          </button>
+          <DropDown state="open"/>
+        </div>
       </div>
     );
   }
 }
+//state="open"
+//<a href='/profileMe' className="dropdown-toggle">
+//  <img style={{height: 40, borderRadius: 10}} src="/images/me.png"/>
+//</a>
 
 function select(state){
   return {

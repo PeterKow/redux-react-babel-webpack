@@ -8,11 +8,6 @@ import MiniArticleList from '../components/miniArticleList.jsx';
 
 export default class Articles extends Component {
 
-  propTypes: {
-    miniArticles: React.PropTypes.array.isRequired,
-    isFetching: React.PropTypes.bool.isRequired
-    }
-
   render() {
     // Injected by connect() call:
     const { dispatch, miniArticles, isFetching } = this.props;
@@ -36,6 +31,11 @@ export default class Articles extends Component {
     }
   }
 };
+
+Articles.propTypes = {
+  miniArticles: React.PropTypes.array.isRequired,
+    isFetching: React.PropTypes.bool.isRequired
+}
 
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
