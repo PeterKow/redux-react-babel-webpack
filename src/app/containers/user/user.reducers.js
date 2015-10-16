@@ -4,7 +4,9 @@ import { AUTH_TWITTER, TWITTER_FAILED, TWITTER_LOGIN, TWITTER_LOGOUT } from './u
 import storage from '../../utils/localStorage.js'
 
 const initialState = Immutable.Map({
-  tokens: {} /*'manage_account'*/ ,
+  tokens: {
+    twitter: {}
+  } /*'manage_account'*/ ,
   fetchingAuth: false
 })
 
@@ -19,7 +21,7 @@ function userReducer(state = initialState, action = { type : undefined }) {
       storage.setItem('token', action.data.twitter.token)
       return state.merge(state, { tokens: { twitter: action.data.twitter.token }, fetchingAuth: false})
     case TWITTER_LOGOUT:
-      return state.merge(state, { tokens: { twitter: undefined }})
+      return state.merge(state, { tokens: { twitter: {} }})
     default:
       return state
   }

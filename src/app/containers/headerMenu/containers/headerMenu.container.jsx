@@ -56,7 +56,7 @@ class HeaderMenu extends Component {
               <img style={{height: 40, borderRadius: 10}} src="/images/me.png" onClick={::this.manageDropDown}/>
               <DropDown state={this.state.dropDownState}>
                 <li><a href="/auth/twitter">Sign in</a></li>
-                <li style={{cursor: 'pointer'}} onClick={dispatch(twitterLogout())}>
+                <li style={{cursor: 'pointer'}} onClick={() => dispatch(twitterLogout())}>
                   <a>Logout</a>
                 </li>
                 <li role="separator" className="divider"></li>

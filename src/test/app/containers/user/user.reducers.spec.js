@@ -67,7 +67,7 @@ describe('User reducers', function(){
     }
 
     const newState = userReducer(startingState, action)
-    expect(newState.get('tokens').get('twitter')).to.equal(undefined);
+    expect(newState.get('tokens').get('twitter').toJSON()).to.be.empty;
 
   })
 
