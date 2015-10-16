@@ -8,6 +8,7 @@ export function authTwitter() {
   return dispatch => {
     dispatch({ type: AUTH_TWITTER })
 
+    // TODO change url generic solution
     return fetch('http://127.0.0.1:8000/profile',{
       credentials: 'same-origin'
     })

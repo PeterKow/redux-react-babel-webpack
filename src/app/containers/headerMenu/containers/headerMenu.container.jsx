@@ -14,7 +14,7 @@ class HeaderMenu extends Component {
 
   manageDropDown() {
     if(this.state.dropDownState === 'open'){
-      //this.setState({dropDownState: 'close'})
+      this.setState({dropDownState: 'close'})
     } else {
       this.setState({dropDownState: 'open'})
     }
@@ -22,7 +22,7 @@ class HeaderMenu extends Component {
 
   constructor(props, context){
     super(props)
-    this.state = { dropDownState : 'open' }
+    this.state = { dropDownState : 'close' }
   }
 
   render() {
