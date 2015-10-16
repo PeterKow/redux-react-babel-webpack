@@ -1,5 +1,5 @@
 /* globals fetch */
-import { AUTH_TWITTER, TWITTER_LOGIN, TWITTER_FAILED } from './user.actionTypes.js'
+import { AUTH_TWITTER, TWITTER_LOGIN, TWITTER_FAILED, TWITTER_LOGOUT } from './user.actionTypes.js'
 import fetch from 'isomorphic-fetch'
 
 //console.log('fetch', fetch)
@@ -44,8 +44,6 @@ export function authTwitter() {
       //window.history.pushState(null, null, '/login')
     }
   }
-
-
 }
 
 export function twitterLogin(data) {
@@ -54,4 +52,8 @@ export function twitterLogin(data) {
 
 export function twitterFailed(){
   return { type: TWITTER_FAILED }
+}
+
+export function twitterLogout() {
+  return { type: TWITTER_LOGOUT }
 }

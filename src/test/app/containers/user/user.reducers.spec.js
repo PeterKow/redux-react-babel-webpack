@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
 import proxyquire from 'proxyquire'
+import Immutable from 'immutable'
 
 const stub = {
   setItem: sinon.spy()
@@ -49,6 +50,24 @@ describe('User reducers', function(){
     expect(newState.get('tokens').get('twitter')).to.equal('twitter_token');
     expect(newState.get('fetchingAuth')).to.equal(false);
     expect(stub.setItem.called).to.equal(true);
+
+  })
+
+  it('TWITTER_LOGOUT should remove token', function(){
+
+    const startingState = Immutable.Map({
+      tokens: {
+        twitter: 'twitter_token'
+      },
+      fetchingAuth: false
+    })
+
+    const action = {
+      type: 'TWITTER_LOGOUT'
+    }
+
+    const newState = userReducer(startingState, action)
+    expect(newState.get('tokens').get('twitter')).to.equal(undefined);
 
   })
 

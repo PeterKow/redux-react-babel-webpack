@@ -6,26 +6,27 @@ import SearchKeyWords from '../../searchArticles/components/searchKeywords.js'
 import SelectLanguage from '../../searchArticles/components/selectLanguage.js'
 import DropDown from '../../utils/dropdown/dropdown.js'
 
+import { twitterLogout } from '../../user/user.actions.js'
+
+import Storage from '../../../utils/localStorage.js'
 
 class HeaderMenu extends Component {
 
   manageDropDown() {
-
     if(this.state.dropDownState === 'open'){
-      this.setState({dropDownState: 'close'})
+      //this.setState({dropDownState: 'close'})
     } else {
       this.setState({dropDownState: 'open'})
     }
-
   }
 
   constructor(props, context){
     super(props)
-    this.state = { dropDownState : 'close' }
+    this.state = { dropDownState : 'open' }
   }
 
   render() {
-    const { searchArticles } = this.props
+    const { dispatch, searchArticles } = this.props
 
     return  (
       <div style={articlesContainerStyle}>
@@ -55,6 +56,9 @@ class HeaderMenu extends Component {
               <img style={{height: 40, borderRadius: 10}} src="/images/me.png" onClick={::this.manageDropDown}/>
               <DropDown state={this.state.dropDownState}>
                 <li><a href="/auth/twitter">Sign in</a></li>
+                <li style={{cursor: 'pointer'}} onClick={dispatch(twitterLogout())}>
+                  <a>Logout</a>
+                </li>
                 <li role="separator" className="divider"></li>
                 <li><a href="#">Separated link</a></li>
               </DropDown>
