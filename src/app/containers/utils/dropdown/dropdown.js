@@ -8,9 +8,7 @@ export default class Dropdown extends Component {
     return (
       <div className={state}>
         <ul className="dropdown-menu">
-          <li><a href="/auth/twitte">Sign in</a></li>
-          <li role="separator" className="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          { this.props.children }
         </ul>
       </div>
     )

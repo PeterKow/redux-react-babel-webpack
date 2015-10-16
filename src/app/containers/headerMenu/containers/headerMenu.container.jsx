@@ -11,17 +11,17 @@ class HeaderMenu extends Component {
 
   manageDropDown() {
 
-    if(this.state.dropDownOpen === 'open'){
-      this.setState({dropDownOpen: 'close'})
+    if(this.state.dropDownState === 'open'){
+      this.setState({dropDownState: 'close'})
     } else {
-      this.setState({dropDownOpen: 'open'})
+      this.setState({dropDownState: 'open'})
     }
 
   }
 
   constructor(props, context){
     super(props)
-    this.state = { dropDownOpen : 'close' }
+    this.state = { dropDownState : 'close' }
   }
 
   render() {
@@ -53,7 +53,11 @@ class HeaderMenu extends Component {
             </form>
             <div className="col-md-1">
               <img style={{height: 40, borderRadius: 10}} src="/images/me.png" onClick={::this.manageDropDown}/>
-              <DropDown state={this.state.dropDownOpen}/>
+              <DropDown state={this.state.dropDownState}>
+                <li><a href="/auth/twitter">Sign in</a></li>
+                <li role="separator" className="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </DropDown>
             </div>
           </div>
         </div>
@@ -105,6 +109,3 @@ const logoTopStyle = {
   marginRight: 'auto',
   height: 44
 }
-
-//<h2 style={{textAlign: 'center'}}>TwitterSearch</h2>
-//<a href="/auth/twitter" className="tweetbutton" title="Sign in">Sign in</a>
