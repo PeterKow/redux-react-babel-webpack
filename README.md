@@ -20,3 +20,8 @@ Start:
 ```npm run start```
 
 Goto:```http://127.0.0.1:8000```
+
+How to install Mongodb:
+
+1. ```brew install mongodb --devel```
+2. ```brew services start mongodb```
