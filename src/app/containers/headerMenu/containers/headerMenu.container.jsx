@@ -6,9 +6,24 @@ import SearchKeyWords from '../../searchArticles/components/searchKeywords.js'
 import SelectLanguage from '../../searchArticles/components/selectLanguage.js'
 import DropDown from '../../utils/dropdown/dropdown.js'
 
-//import MainSearch from '../../searchArticles/mainSearch.container.js'
 
 class HeaderMenu extends Component {
+
+  manageDropDown() {
+
+    if(this.state.dropDownOpen === 'open'){
+      this.setState({dropDownOpen: 'close'})
+    } else {
+      this.setState({dropDownOpen: 'open'})
+    }
+
+  }
+
+  constructor(props, context){
+    super(props)
+    this.state = { dropDownOpen : 'close' }
+  }
+
   render() {
     const { searchArticles } = this.props
 
@@ -37,25 +52,17 @@ class HeaderMenu extends Component {
               </div>
             </form>
             <div className="col-md-1">
-
+              <img style={{height: 40, borderRadius: 10}} src="/images/me.png" onClick={::this.manageDropDown}/>
+              <DropDown state={this.state.dropDownOpen}/>
             </div>
           </div>
         </div>
         <GoldLine/>
-        <div className="btn-group">
-          <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Action <span className="caret"></span>
-          </button>
-          <DropDown state="open"/>
-        </div>
       </div>
     );
   }
 }
-//state="open"
-//<a href='/profileMe' className="dropdown-toggle">
-//  <img style={{height: 40, borderRadius: 10}} src="/images/me.png"/>
-//</a>
+
 
 function select(state){
   return {
