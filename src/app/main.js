@@ -14,7 +14,7 @@ import createBrowserHistory from 'history/lib/createHashHistory';
 import configureStore from './utils/configure-store.js';
 import HeaderMenu from './containers/headerMenu/containers/headerMenu.container.jsx';
 import * as storage from './persistance/storage.js'
-import { IntlProvider } from 'react-intl'
+//import { IntlProvider } from 'react-intl'
 import DevTools from './utils/devTools.js'
 
 import { twitterResultsSimple } from './containers/articles/mockTwitterResults.js'
