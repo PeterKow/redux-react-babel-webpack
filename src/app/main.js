@@ -20,7 +20,6 @@ import DevTools from './utils/devTools.js'
 import { twitterResultsSimple } from './containers/articles/mockTwitterResults.js'
 const initialState = {
   application: {
-    token: storage.get('token'),
     locale: storage.get('locale') || 'en'
   },
   //user: {

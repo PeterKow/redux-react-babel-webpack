@@ -2,20 +2,10 @@ import { combineReducers } from 'redux';
 import { ADD_MINIARTICLE, COMPLETE_MINI_ARTICLE, SET_VISIBILITY_FILTER, NEW_MINI_ARTICLES, VisibilityFilters,
          FETCH_MINI_ARTICLES } from './actions';
 import { twitterResultsSimple } from './mockTwitterResults.js'
-import * as storage from '../../persistance/storage.js';
 const { SHOW_ALL } = VisibilityFilters;
 
 
 const initialState = twitterResultsSimple;
-
-const initApplication = {
-    token: storage.get('token'),
-    locale: storage.get('locale') || 'en'
-};
-
-export function application(state = initApplication, action = { type : undefined}){
-  return state;
-}
 
 
 export function visibilityFilter(state = SHOW_ALL, action = { type : undefined}) {
