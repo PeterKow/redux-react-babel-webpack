@@ -1,6 +1,7 @@
 /* globals fetch */
 import { AUTH_TWITTER, TWITTER_LOGIN, TWITTER_FAILED, TWITTER_LOGOUT } from './user.actionTypes.js'
 import fetch from 'isomorphic-fetch'
+import * as storage from '../../persistance/storage.js'
 
 //console.log('fetch', fetch)
 
@@ -16,6 +17,7 @@ export function authTwitter() {
       .then(responseToJson)
       .then(data => {
         if (data._id && data.twitter.token){
+          storage.put('token', data.twitter.token)
           dispatch(twitterLogin(data))
           // TODO create more dumb components and move dispatcher to parent -> actionName=dispatch(actionName()) and then child will just call this! :)
           //window.history.pushState(null, null, '/')
@@ -56,5 +58,6 @@ export function twitterFailed(){
 }
 
 export function twitterLogout() {
+  storage.remove('token')
   return { type: TWITTER_LOGOUT }
 }
