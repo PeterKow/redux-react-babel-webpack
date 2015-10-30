@@ -40,7 +40,7 @@ export function authTwitter() {
 
     function handleError(res){
       dispatch(twitterFailed())
-      console.log('ended BADD!!! from fetchMiniArticles', res)
+      console.log('ended BADD!!! from authTwitter', res)
       //TODO : fix routing not through the window
       //window.history.pushState(null, null, '/login')
     }

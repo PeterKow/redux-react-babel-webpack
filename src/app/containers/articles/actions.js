@@ -5,6 +5,7 @@ export const ADD_MINIARTICLE = 'ADD_MINIARTICLE';
 export const COMPLETE_MINI_ARTICLE = 'COMPLETE_MINI_ARTICLE';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const FETCH_MINI_ARTICLES = 'FETCH_MINI_ARTICLES';
+export const FETCH_MINI_ARTICLES_FAILED = 'FETCH_MINI_ARTICLES_FAILED';
 export const NEW_MINI_ARTICLES = 'NEW_MINI_ARTICLES';
 
 import { randomResponse } from './mockTwitterResults.js'
@@ -44,4 +45,8 @@ export function fetchMiniArticles(query) {
     return fetch('https://api.github.com/users/peterkow')
       .then(res => res.json())
   }
+}
+
+export function fetchMiniArticlesFailed(){
+  return { type: FETCH_MINI_ARTICLES_FAILED}
 }
