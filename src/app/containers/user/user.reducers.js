@@ -1,11 +1,11 @@
 import Immutable from 'immutable'
 import { authTwitter } from './user.actions.js'
 import { AUTH_TWITTER, TWITTER_FAILED, TWITTER_LOGIN, TWITTER_LOGOUT } from './user.actionTypes.js'
-import storage from '../../utils/localStorage.js'
+import * as storage from '../../utils/localStorage.js'
 
 const initialState = Immutable.Map({
   tokens: {
-    twitter: {}
+    twitter: storage.get('token')
   } /*'manage_account'*/ ,
   fetchingAuth: false
 })
